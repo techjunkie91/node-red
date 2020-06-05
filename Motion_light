@@ -1,0 +1,345 @@
+[
+    {
+        "id": "69edd6b9.12dad8",
+        "type": "server-state-changed",
+        "z": "30863397.f1321c",
+        "name": "Master Bathroom",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "exposeToHomeAssistant": false,
+        "haConfig": [
+            {
+                "property": "name",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            }
+        ],
+        "entityidfilter": "binary_sensor.master_bathroom",
+        "entityidfiltertype": "exact",
+        "outputinitially": false,
+        "state_type": "str",
+        "haltifstate": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "outputs": 2,
+        "output_only_on_state_change": true,
+        "x": 80,
+        "y": 2140,
+        "wires": [
+            [
+                "15f9a89c.935717"
+            ],
+            [
+                "15f9a89c.935717"
+            ]
+        ]
+    },
+    {
+        "id": "15f9a89c.935717",
+        "type": "api-current-state",
+        "z": "30863397.f1321c",
+        "name": " light level low?",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "switch.light_level_low",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 280,
+        "y": 2140,
+        "wires": [
+            [
+                "fde25925.8d9ca8"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "1e5d3aba.0a8e25",
+        "type": "api-call-service",
+        "z": "30863397.f1321c",
+        "name": "Bathroom light on",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.master_bathroom",
+        "data": "{\"entity_id\":\"light.master_bathroom\",\"brightness_pct\":\"50\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1270,
+        "y": 2220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5742a7f7.52bbb8",
+        "type": "api-current-state",
+        "z": "30863397.f1321c",
+        "name": "After bed toilet light dim",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "switch.after_bed_toilet_light",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 990,
+        "y": 2180,
+        "wires": [
+            [
+                "d683076c.7fd068"
+            ],
+            [
+                "1e5d3aba.0a8e25"
+            ]
+        ]
+    },
+    {
+        "id": "d683076c.7fd068",
+        "type": "api-call-service",
+        "z": "30863397.f1321c",
+        "name": "Bathroom light dim on",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_on",
+        "entityId": "light.master_bathroom",
+        "data": "{\"entity_id\":\"light.master_bathroom\",\"brightness_pct\":\"10\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1280,
+        "y": 2160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fde25925.8d9ca8",
+        "type": "api-current-state",
+        "z": "30863397.f1321c",
+        "name": "Light on?",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "light.master_bathroom",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 460,
+        "y": 2140,
+        "wires": [
+            [
+                "cf45ec7a.1110e"
+            ],
+            [
+                "fcce8f02.ed8cf"
+            ]
+        ]
+    },
+    {
+        "id": "a367f453.70bf38",
+        "type": "api-call-service",
+        "z": "30863397.f1321c",
+        "name": "Bathroom light off",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "light",
+        "service": "turn_off",
+        "entityId": "light.master_bathroom",
+        "data": "{\"entity_id\":\"light.master_bathroom\"}",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1130,
+        "y": 2100,
+        "wires": [
+            [
+                "89fbb18e.6a798"
+            ]
+        ]
+    },
+    {
+        "id": "38af5c48.c10ca4",
+        "type": "trigger",
+        "z": "30863397.f1321c",
+        "op1": "",
+        "op2": "off",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "1",
+        "extend": true,
+        "units": "min",
+        "reset": "",
+        "bytopic": "all",
+        "name": "",
+        "x": 930,
+        "y": 2100,
+        "wires": [
+            [
+                "a367f453.70bf38"
+            ]
+        ]
+    },
+    {
+        "id": "76571cf9.334474",
+        "type": "ha-entity",
+        "z": "30863397.f1321c",
+        "name": "Auto Bathroom",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "debugenabled": false,
+        "outputs": 2,
+        "entityType": "switch",
+        "config": [
+            {
+                "property": "name",
+                "value": "auto_bathroom"
+            },
+            {
+                "property": "device_class",
+                "value": ""
+            },
+            {
+                "property": "icon",
+                "value": ""
+            },
+            {
+                "property": "unit_of_measurement",
+                "value": ""
+            }
+        ],
+        "state": "payload",
+        "stateType": "msg",
+        "attributes": [],
+        "resend": true,
+        "outputLocation": "",
+        "outputLocationType": "none",
+        "inputOverride": "allow",
+        "x": 80,
+        "y": 2060,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "cf45ec7a.1110e",
+        "type": "api-current-state",
+        "z": "30863397.f1321c",
+        "name": "Auto bathroom on",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "outputs": 2,
+        "halt_if": "on",
+        "halt_if_type": "str",
+        "halt_if_compare": "is",
+        "override_topic": false,
+        "entity_id": "switch.auto_bathroom",
+        "state_type": "str",
+        "state_location": "payload",
+        "override_payload": "msg",
+        "entity_location": "data",
+        "override_data": "msg",
+        "blockInputOverrides": false,
+        "x": 690,
+        "y": 2080,
+        "wires": [
+            [
+                "38af5c48.c10ca4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fcce8f02.ed8cf",
+        "type": "api-call-service",
+        "z": "30863397.f1321c",
+        "name": "auto bathroom on",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_on",
+        "entityId": "switch.auto_bathroom",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 690,
+        "y": 2180,
+        "wires": [
+            [
+                "5742a7f7.52bbb8"
+            ]
+        ]
+    },
+    {
+        "id": "89fbb18e.6a798",
+        "type": "api-call-service",
+        "z": "30863397.f1321c",
+        "name": "auto bathroom off",
+        "server": "c4ebeeb7.2a4c9",
+        "version": 1,
+        "debugenabled": false,
+        "service_domain": "switch",
+        "service": "turn_off",
+        "entityId": "switch.auto_bathroom",
+        "data": "",
+        "dataType": "json",
+        "mergecontext": "",
+        "output_location": "",
+        "output_location_type": "none",
+        "mustacheAltTags": false,
+        "x": 1370,
+        "y": 2100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4ebeeb7.2a4c9",
+        "type": "server",
+        "z": "",
+        "name": "Home Assistant"
+    }
+]
